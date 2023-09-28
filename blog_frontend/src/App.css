@@ -459,4 +459,61 @@ hr {
 
 }
 
+.read-blog-container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.blog-content{
+  width: 65%;
+  padding: 0px 30px;
+}
+.blog-content .blog-read-image{
+  width: 100%;
+  height: 60vh;
+}
+.blog-read-image img{
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.author-info{
+  display: flex;
+  height: 70px;
+  align-items: center;
+  margin-top: 20px;
+}
+.author-image{
+  margin-right: 10px;
+}
+.author-image img{
+ width: 60px;
+ height: 60px;
+ border-radius: 50%;
+}
+.author-name{
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+.blog-heading{
+  width: 100%;
+  margin: 20px 0px;
+}
+.blog-heading h2{
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.blog-description{
+  margin-bottom: 50px;
+}
+.blog-description p{
+  text-align: justify;
+  font-size: 16px;
+}
+
+
 

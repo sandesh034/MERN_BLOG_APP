@@ -9,6 +9,7 @@ import AddBlog from './Components/AddBlog';
 import HomeSwiper from "./Components/HomeSwiper";
 import BlogCard from "./Components/BlogCard";
 import Footer from "./Components/Footer";
+import ReadBlog from "./Components/ReadBlog";
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/registerUser" element={<RegisterUser />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/addblog" element={<AddBlog />}></Route>
+        <Route path="/readBlog" element={<ReadBlog/>}></Route>
       </Routes>
     </BrowserRouter>
   );
