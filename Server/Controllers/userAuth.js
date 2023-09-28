@@ -57,6 +57,7 @@ const loginUser = async (req, res) => {
 }
 
 const checkLogin=async(req,res)=>{
-    res.status(400).json(sendResponse(true,"User auhenticated successfully"))
+    // console.log('request received')
+    // res.status(200).json(sendResponse(true,"User auhenticated successfully"))
 }
 module.exports = { registerUser, loginUser,checkLogin };

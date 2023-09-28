@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const multer = require('multer');
 const path = require('path');
 
@@ -30,7 +31,11 @@ const upload = multer({
 });
 const uploadImage = (req, res) => {
     if (req.file) {
-      res.send("Image uploaded successfully.");
+      res.status(200).json({
+        'status':true,
+        'message':'Image Uploaded Successfully',
+        'data':`http://localhost:8000/uploadedImage/${req.file.filename}`
+      })
     }
   };
 

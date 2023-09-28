@@ -37,6 +37,9 @@ const Login = () => {
             position: "top-center",
             type: type
         })
+        if(messageData.status){
+            window.location='/'
+        }
 
     }  
     return (

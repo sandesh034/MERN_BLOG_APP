@@ -1,21 +1,31 @@
 import React from 'react'
 import logo from '../Images/logo.png'
+import { useState, useRef, useEffect } from 'react';
+import JoditEditor from 'jodit-react';
 
 
 const AddBlog = () => {
-    const checkLogin=async()=>{
-        const response=await fetch('http://127.0.01:8000/checkLogin',{
-            method:'GET',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            credentials:'include'
-        })
-        const responseData=response.json()
-        const message=responseData.message
-        console.log(message)
-    }
-    checkLogin()
+    useEffect(() => {
+        const checkLogin = async () => {
+            const response = await fetch('http://127.0.01:8000/checkLogin', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include'
+            })
+            const responseData = await response.json();
+            const  status = responseData.status
+            if(!status){
+                window.location='/login'
+            }
+        }
+        checkLogin()
+    }, [])
+
+    const editor = useRef(null);
+    const [content, setContent] = useState('');
+
     return (
         <div className='container'>
             <div className='add-blog-wrapper'>
@@ -30,7 +40,13 @@ const AddBlog = () => {
 
                     <div className='add-blog-form-field'>
                         <label htmlFor='blog-description'>Description</label>
-                        <textarea rows='10' id='blog-description' placeholder='Enter the blog description'></textarea>
+                        {/* <textarea rows='10' id='blog-description' placeholder='Enter the blog description'></textarea> */}
+                        <JoditEditor
+                            ref={editor}
+                            value={content}
+                            onChange={newContent => setContent(newContent)}
+                        />
+
                     </div>
                     <div className='add-blog-form-field'>
                         <label htmlFor='blog-image'>Image</label>

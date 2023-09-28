@@ -5,23 +5,23 @@ import { FaFacebook,FaInstagram,FaViber,FaDiscord,FaTelegram } from 'react-icons
 const Footer = () => {
     return (
         <>
-            <section class="footer-container">
-                <div class="footer-about-column">
+            <section className="footer-container">
+                <div className="footer-about-column">
                     <h3>About</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt maxime est aperiam eaque dicta
                         consequuntur maiores temporibus quod tempora corrupti!</p>
                 </div>
-                <div class="footer-links-column">
+                <div className="footer-links-column">
                     <h3>Links</h3>
                     <ul>
-                        <li class="footer-links-item"><a href="">Home</a></li>
-                        <li class="footer-links-item"><a href="">About</a></li>
-                        <li class="footer-links-item"><a href="">Education</a></li>
-                        <li class="footer-links-item"><a href="">Services</a></li>
-                        <li class="footer-links-item"><a href="">Contact</a></li>
+                        <li className="footer-links-item"><a href="">Home</a></li>
+                        <li className="footer-links-item"><a href="">About</a></li>
+                        <li className="footer-links-item"><a href="">Education</a></li>
+                        <li className="footer-links-item"><a href="">Services</a></li>
+                        <li className="footer-links-item"><a href="">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-social-media-column">
+                <div className="footer-social-media-column">
                     <h3>Connect</h3>
                     <ul>
                         <li class="footer-links-item"><a href=""><FaFacebook/></a></li>
