@@ -4,12 +4,15 @@ const router = express.Router();
 
 const blogModel = require('../Models/blogModel')
 const userModel = require('../Models/userModel')
+const sendResponse = (status, message, data) => {
+    return ({ status, message, data })
+}
 
 
 const createBlog = async (req, res) => {
     try {
-        const { title, description, image, paragraph } = req.body
-        const newBlog = new blogModel({ title, description, image, paragraph, owner: req.userId })
+        const { title, category, description, image, paragraph } = req.body
+        const newBlog = new blogModel({ title, category, description, image, paragraph, owner: req.userId })
         await newBlog.save()
 
         const user = await userModel.findById(req.userId)
@@ -19,13 +22,27 @@ const createBlog = async (req, res) => {
         else {
             user.blogs.push(newBlog._id)
             await user.save()
-            res.status(400).json({ 'message': 'Blog Post Created Successfully' })
+            res.status(200).json({ 'message': 'Blog Post Created Successfully' })
         }
 
     }
     catch (error) {
         console.log(error)
     }
+}
+const getAllBlogs = async (req, res) => {
+    try {
+        const blog = await blogModel.find()
+        if (!blog) {
+            return (res.status(400).json(sendResponse(false, 'Blog post not found')))
+        }
+        else {
+            res.status(200).json(sendResponse(true, 'Here are all the Blogs', blog))
+        }
+    } catch (error) {
+        console.log(error.message)
+    }
+
 }
 const getBlogById = async (req, res) => {
     const blogId = req.params.id
@@ -82,4 +99,19 @@ const deleteBlog = async (req, res) => {
     }
 }
 
-module.exports = { createBlog, getBlogById, updateBlog, deleteBlog }
+const getBlogByUserId = async (req, res) => {
+    try {
+        const userId = req.params.userId
+        const blog = await blogModel.find({ owner: userId }).sort({ updatedAt: -1 }).limit(10)
+        if (!blog) {
+            return (res.status(400).json(sendResponse(false, 'This user has not created other blogs')))
+        }
+        else {
+            res.status(200).json(sendResponse(true, 'Here are other blogs created by same user', blog))
+        }
+    } catch (error) {
+        console.log(error.message)
+    }
+
+}
+module.exports = { createBlog, getBlogById, getAllBlogs,updateBlog, deleteBlog, getBlogByUserId }

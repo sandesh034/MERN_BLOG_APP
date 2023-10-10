@@ -19,6 +19,10 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    category: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
         required: true
@@ -31,11 +35,11 @@ const blogSchema = mongoose.Schema({
         type: [paragraphSchema],
         default: []
     },
-    owner:{
-        type:mongoose.Schema.Types.ObjectId,
-        required:true
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
     }
-},{ timestamps: true })
+}, { timestamps: true })
 
-const blogModel=mongoose.model('blogModel',blogSchema)
-module.exports=blogModel
+const blogModel = mongoose.model('blogModel', blogSchema)
+module.exports = blogModel

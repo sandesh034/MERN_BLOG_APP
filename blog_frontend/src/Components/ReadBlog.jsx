@@ -3,11 +3,16 @@ import image from '../Images/Fooding.jpeg'
 import author from '../Images/Author.jpg'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import PotraitCard from './PotraitCard'
 
 const ReadBlog = () => {
+    useEffect(() => {
+        // 👇️ scroll to top on page load
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+      }, [])
     return (
         <>
-        <Navbar></Navbar>
+            <Navbar></Navbar>
             <div className='read-blog-container'>
                 <div className='blog-content'>
                     <div className='blog-read-image'>
@@ -34,12 +39,23 @@ const ReadBlog = () => {
                         </p>
                     </div>
                     <div className='recomendation'>
-                        <h2 className='recommendation-title'>Checkout Other Blogs By Same User</h2>
+                        <h2 className='recomendation-title'>Checkout Other Blogs By Same User</h2>
+                        <hr style={{marginBottom:"10px"}}></hr>
+                        <div className='recomendation-wrapper'>
+                            <PotraitCard />
+                            <PotraitCard />
+                        </div>
                     </div>
                 </div>
-                <div className='right-sidebar'></div>
+                <div className='right-sidebar'>
+                    <h2>Checkout Other Blogs </h2>
+                    <hr></hr>
+                    <PotraitCard></PotraitCard>
+                    <PotraitCard></PotraitCard>
+                    <PotraitCard></PotraitCard>
+                </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     )
 }

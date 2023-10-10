@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { FaUser, FaCalendar, FaComment, FaHeart,FaShare } from "react-icons/fa6";
 
 import image from '../Images/Fooding.jpeg'
-const BlogCard = () => {
+const BlogCard = (props) => {
+// console.log(props.data.title)
     return (
         <>
             <div className='card-wrapper'>
@@ -41,10 +42,8 @@ const BlogCard = () => {
                         </div>
                     </div>
 
-                    <div className='card-title'>Recipe Of Burger</div>
-                    <p className='card-description'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum non illo qui laborum! At eos excepturi culpa ab consequatur accusamus architecto quae? Eum laborum, praesentium cupiditate reiciendis nisi ut! Mollitia cum porro molestiae optio nam alias doloribus maxime 
-                    </p>
+                    <div className='card-title'>{props.data.title}</div>
+                    <p className='card-description'>{props.data.description}</p>
                     <div className='card-footer'>
                         <Link to='/readBlog' className='card-btn'>Read More</Link>
                         <button className='share-btn'><FaShare/></button>

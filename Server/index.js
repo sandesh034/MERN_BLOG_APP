@@ -14,7 +14,7 @@ app.use(
       credentials: true, // Allow credentials when needed
     })
   );
-app.use('/image',express.static('./upload'))
+app.use(express.static('./uploads'))
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))

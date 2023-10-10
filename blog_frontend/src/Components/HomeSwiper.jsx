@@ -1,7 +1,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import img1 from '../Images/1.jpg'
-import img2 from '../Images/3.jpg'
+import img1 from '../Images/banner1.jpg'
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -30,9 +30,7 @@ export default function HomeSwiper() {
         <SwiperSlide>
           <img className='swiper-img' src={img1} alt='' />
         </SwiperSlide>
-        <SwiperSlide>
-          <img className='swiper-img' src={img2} alt='' />
-        </SwiperSlide>
+        
       </Swiper>
     </>
   );
